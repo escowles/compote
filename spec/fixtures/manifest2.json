@@ -1,0 +1,94 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@type": "sc:Manifest",
+  "@id": "http://example.org/manifest2.json",
+  "label": ["Manifest 2"],
+  "viewingHint": "individuals",
+  "metadata": [],
+  "sequences": [
+    {
+      "@type": "sc:Sequence",
+      "@id": "http://example.org/manifest2/sequence1",
+      "canvases": [
+        {
+          "@type": "sc:Canvas",
+          "@id": "http://example.org/manifest2/canvas1",
+          "label": "1",
+          "width": 4992,
+          "height": 6666,
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@type": "dctypes:Image",
+                "@id": "http://example.org/images/image3/full/1000,/0/default.jpg",
+                "height": 6666,
+                "width": 4992,
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "http://example.org/images/image3",
+                  "profile": "http://iiif.io/api/image/2/level2.json"
+                }
+              },
+              "@id": "http://example.org/manifest2/image3",
+              "on": "http://example.org/manifest2/canvas1"
+            }
+          ]
+        },
+        {
+          "@type": "sc:Canvas",
+          "@id": "http://example.org/manifest2/canvas2",
+          "label": "2",
+          "width": 4992,
+          "height": 6666,
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@type": "dctypes:Image",
+                "@id": "http://example.org/images/image4/full/1000,/0/default.jpg",
+                "height": 6666,
+                "width": 4992,
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "http://example.org/images/image4",
+                  "profile": "http://iiif.io/api/image/2/level2.json"
+                }
+              },
+              "@id": "http://example.org/manifest2/image4",
+              "on": "http://example.org/manifest2/canvas2"
+            }
+          ]
+        }
+      ],
+      "viewingHint": "individuals"
+    }
+  ],
+  "structures": [
+    {
+      "@type": "sc:Range",
+      "@id": "http://example.org/manifest2/range1",
+      "label": "Logical",
+      "viewingHint": "top",
+      "ranges": [],
+      "canvases": []
+    }
+  ],
+  "license": "http://rightsstatements.org/vocab/NKC/1.0/",
+  "thumbnail": {
+    "@id": "http://example.org/images/image3/full/!200,150/0/default.jpg",
+    "service": {
+      "@context": "http://iiif.io/api/image/2/context.json",
+      "@id": "http://example.org/images/image3",
+      "profile": "http://iiif.io/api/image/2/level2.json"
+    }
+  },
+  "rendering": {
+    "@id": "http://example.org/manifest2/",
+    "format": "text/html"
+  }
+}

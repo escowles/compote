@@ -1,0 +1,21 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@type": "sc:Collection",
+  "@id": "http://example.org/collection.json",
+  "label": ["Sample Collection"],
+  "metadata": [],
+  "manifests": [
+    {
+      "@context": "http://iiif.io/api/presentation/2/context.json",
+      "@type": "sc:Manifest",
+      "@id": "http://example.org/manifest1.json",
+      "label": ["Manifest 1"]
+    },
+    {
+      "@context": "http://iiif.io/api/presentation/2/context.json",
+      "@type": "sc:Manifest",
+      "@id": "http://example.org/manifest2.json",
+      "label": ["Manifest 2"]
+    }
+  ]
+}
