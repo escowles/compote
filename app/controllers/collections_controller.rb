@@ -8,6 +8,7 @@ class CollectionsController < ApplicationController
 
   # GET /collections/1 or /collections/1.json
   def show
+    @image_size = 256
   end
 
   # GET /collections/new

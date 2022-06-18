@@ -15,6 +15,16 @@ RSpec.describe CollectionsController, type: :controller do
     end
   end
 
+  describe "GET #show" do
+    it "assigns variables" do
+      collection
+      get :show, params: { id: collection.id }
+      expect(response).to be_successful
+      expect(assigns(:collection).id).to eq(collection.id)
+      expect(assigns(:image_size)).to be_a Integer
+    end
+  end
+
   describe "GET #new" do
     it "displays the form" do
       get :new, params: {}

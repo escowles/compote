@@ -2,13 +2,10 @@
 
 <h1>Collections</h1>
 
-<div id="collections">
+<ul id="collections">
   <% @collections.each do |collection| %>
-    <%= render collection %>
-    <p>
-      <%= link_to "Show this collection", collection %>
-    </p>
+    <li><%= link_to collection.label, collection %></li>
   <% end %>
 </div>
 
-<%= link_to "New collection", new_collection_path %>
+<p><%= button_to "New collection", new_collection_path, method: :get %></p>

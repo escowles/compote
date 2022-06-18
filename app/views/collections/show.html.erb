@@ -1,10 +1,23 @@
 <p style="color: green"><%= notice %></p>
+<h1>
+  <%= link_to "Collections", collections_path %>:
+  <%= @collection.label %>
+</h1>
 
-<%= render @collection %>
+<% @collection.manifests.each do |manifest| %>
+  <div class="manifest">
+    <h2>
+      <%= manifest.label %>
+      [<%= link_to "IIIF", manifest.manifest_url %>]
+      [<%= link_to "HTML", manifest.html_url %>]
+    </h2>
+    <% manifest.images.each do |img| %>
+      <%= iiif_image_tag img.image_url, @image_size %>
+    <% end %>
+  </div>
+<% end %>
 
 <div>
-  <%= link_to "Edit this collection", edit_collection_path(@collection) %> |
-  <%= link_to "Back to collections", collections_path %>
-
-  <%= button_to "Destroy this collection", @collection, method: :delete %>
+  <%= button_to "Edit", edit_collection_path(@collection), method: :get %>
+  <%= button_to "Delete", @collection, method: :delete %>
 </div>
