@@ -4,7 +4,6 @@ class Parser
     col_id = col_obj["@id"]
     col_lbl = Array(col_obj["label"]).first
 
-    # TODO: if we find it, we probably want to wipe out old manifests and images
     col = Collection.find_or_create_by(manifest_url: col_id)
     col.label = col_lbl
 
