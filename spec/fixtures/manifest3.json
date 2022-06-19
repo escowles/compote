@@ -1,0 +1,40 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@type": "sc:Manifest",
+  "@id": "http://example.org/manifest3.json",
+  "label": ["Manifest 3 With Errors"],
+  "viewingHint": "individuals",
+  "metadata": [],
+  "sequences": [
+    {
+      "@type": "sc:Sequence",
+      "@id": "http://example.org/manifest3/sequence1",
+      "canvases": [
+        {
+          "@type": "sc:Canvas",
+          "@id": "http://example.org/manifest3/canvas1",
+          "label": "1",
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@type": "dctypes:Image",
+                "@id": "http://example.org/images/image3/full/1000,/0/default.jpg",
+                "format": "image/jpeg"
+              },
+              "@id": "http://example.org/manifest3/image3",
+              "on": "http://example.org/manifest3/canvas1"
+            }
+          ]
+        }
+      ],
+      "viewingHint": "individuals"
+    }
+  ],
+  "license": "http://rightsstatements.org/vocab/NKC/1.0/",
+  "rendering": {
+    "@id": "http://example.org/manifest3/",
+    "format": "text/html"
+  }
+}

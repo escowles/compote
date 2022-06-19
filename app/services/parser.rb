@@ -26,11 +26,11 @@ class Parser
     man.label = mf_lbl
     man.html_url = mf_htm
 
-    man.images = mf_obj.sequences.first.canvases.map do |can|
-      mf_img = can["images"].first["resource"]["service"]["@id"] # XXX IIIF img svc
-      # add "full/1000,/0/default.jpg"
-      Image.find_or_create_by(image_url: mf_img)
-    end
+    image_urls = mf_obj.sequences.first&.canvases&.map do |can|
+      img_service = can["images"].first["resource"]["service"]
+      img_service["@id"] if img_service
+    end&.compact
+    man.images = (image_urls || []).map { |url| Image.find_or_create_by(image_url: url) }
 
     man.save
     man
