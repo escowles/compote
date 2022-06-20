@@ -1,17 +1,10 @@
 require "rails_helper"
+require "webmock_helper"
 
 RSpec.describe Parser do
   subject(:collection) { described_class.parse_collection(url: collection_url) }
   let(:collection_url) { "http://example.org/collection.json" }
   let(:broken_manifest_url) { "http://example.org/manifest3.json" }
-
-  before do
-    WebMock.disable_net_connect!(allow_localhost: true)
-    ["collection.json", "manifest1.json", "manifest2.json", "manifest3.json"].each do |fn|
-      WebMock.stub_request(:get, "http://example.org/#{fn}")
-        .to_return(status: 200, body: File.new("spec/fixtures/#{fn}").read)
-    end
-  end
 
   describe "#parse_collection" do
     it "parses the collection metadata" do
