@@ -22,7 +22,9 @@ RSpec.describe CollectionsController, type: :controller do
       get :show, params: { id: collection.id }
       expect(response).to be_successful
       expect(assigns(:collection).id).to eq(collection.id)
-      expect(assigns(:image_size)).to be_a Integer
+      expect(assigns(:image_size)).to eq(128)
+      expect(assigns(:larger_size)).to eq(256)
+      expect(assigns(:smaller_size)).to eq(64)
     end
   end
 

@@ -8,7 +8,9 @@ class CollectionsController < ApplicationController
 
   # GET /collections/1 or /collections/1.json
   def show
-    @image_size = 256
+    @image_size = parse_image_size(params[:size])
+    @smaller_size = @image_size / 2
+    @larger_size = @image_size * 2
   end
 
   # GET /collections/new
@@ -76,5 +78,11 @@ class CollectionsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def collection_params
       params.require(:collection).permit(:manifest_url, :html_url, :label)
+    end
+
+    # parse image size
+    def parse_image_size(size_str)
+      size_param = size_str.to_i
+      size_param > 0 ? size_param : 128
     end
 end
