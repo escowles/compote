@@ -33,6 +33,9 @@ Rails.application.configure do
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
 
+  # always execute jobs inline
+  config.active_job.queue_adapter = :inline
+
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 

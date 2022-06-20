@@ -18,6 +18,7 @@
 <% end %>
 
 <div>
+  <%= button_to "Parse", parse_collection_path(@collection), method: :post %>
   <%= button_to "Edit", edit_collection_path(@collection), method: :get %>
   <%= button_to "Delete", @collection, method: :delete %>
 </div>

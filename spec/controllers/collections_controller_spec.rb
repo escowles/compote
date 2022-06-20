@@ -1,7 +1,8 @@
 require "rails_helper"
+require "webmock_helper"
 
 RSpec.describe CollectionsController, type: :controller do
-  let(:manifest_url) { "http://example.org/1/manifest" }
+  let(:manifest_url) { "http://example.org/collection.json" }
   let(:collection) { Collection.create(valid_params) }
   let(:invalid_params) { { label: "Invalid Collection", manifest_url: nil } }
   let(:valid_params) { { label: "Test Collection", manifest_url: manifest_url } }
@@ -68,6 +69,17 @@ RSpec.describe CollectionsController, type: :controller do
         expect(collection.label).to eq("Test Collection")
         expect(collection.manifest_url).to eq(manifest_url)
       end
+    end
+  end
+
+  describe "POST #parse" do
+    it "parses the collection manifest and creates objects" do
+      col = collection
+      expect(col.manifests.size).to eq(0)
+      post :parse, params: { id: col.to_param }
+
+      col.reload
+      expect(col.manifests.size).to eq(2)
     end
   end
 

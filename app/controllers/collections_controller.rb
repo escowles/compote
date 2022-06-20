@@ -1,5 +1,5 @@
 class CollectionsController < ApplicationController
-  before_action :set_collection, only: %i[ show edit update destroy ]
+  before_action :set_collection, only: %i[ show edit update parse destroy ]
 
   # GET /collections or /collections.json
   def index
@@ -45,6 +45,15 @@ class CollectionsController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @collection.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # POST /collections/1/parse
+  def parse
+    CollectionParserJob.perform_later(@collection.manifest_url)
+    respond_to do |format|
+      format.html { redirect_to collection_url(@collection), notice: "Background job to parse manifest has been queued." }
+      format.json { render :show, status: :ok, location: @collection }
     end
   end
 
