@@ -33,12 +33,23 @@ body {
 
 h1 {
   font-size: large;
+  height: 2em;
 }
 
 h2 {
   background: #e0e0e0;
   font-size: medium;
   margin: 0;
+  padding: 3px;
+}
+
+.alert {
+  background: #ffd8e5;
+  padding: 3px;
+}
+
+.notice {
+  background: #bbeebb;
   padding: 3px;
 }
 
@@ -52,4 +63,10 @@ h2 {
   border: solid gray 1px;
   min-height: 4em;
   min-width: 300px;
+}
+
+.navbar {
+  float: right;
+  height: 2em;
+  margin-top: 0;
 }
