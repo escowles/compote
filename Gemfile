@@ -39,6 +39,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Use Sass to process CSS
 # gem "sassc-rails"
 
+gem "devise"
 gem "iiif-presentation"
 
 group :development, :test do
