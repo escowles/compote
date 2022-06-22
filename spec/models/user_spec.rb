@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject(:user) { User.create! email: user_email, password: "xxxxxxxx" }
+  let(:user_email) { "test@example.org" }
+
+  it "has an email" do
+    expect(user.email).to eq(user_email)
+  end 
 end

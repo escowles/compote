@@ -7,6 +7,11 @@ RSpec.describe CollectionsController, type: :controller do
   let(:invalid_params) { { label: "Invalid Collection", manifest_url: nil } }
   let(:valid_params) { { label: "Test Collection", manifest_url: manifest_url } }
   let(:updated_params) { { label: "New Label" } }
+  let(:valid_user) { User.create!(email: "test@example.org", password: "xxxxxxxx") }
+
+  before do
+    sign_in valid_user
+  end
 
   describe "GET #index" do
     it "is successful" do
