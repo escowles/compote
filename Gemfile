@@ -45,7 +45,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # gem "sassc-rails"
 
 gem "devise"
-gem "devise_invitable"
 gem "iiif-presentation"
 
 group :development, :test do
