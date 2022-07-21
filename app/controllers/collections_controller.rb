@@ -1,6 +1,6 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: %i[ show edit update parse destroy ]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[ show ]
 
   # GET /collections or /collections.json
   def index
