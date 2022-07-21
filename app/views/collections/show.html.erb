@@ -24,8 +24,10 @@
 <% end %>
 </div>
 
+<% if user_signed_in? %>
 <p>
   Collection Actions:
   <%= button_to "Parse", parse_collection_path(@collection), method: :post, class: "btn" %>
   <%= button_to "Delete", @collection, method: :delete, class: "btn" %>
 </p>
+<% end %>
