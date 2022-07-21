@@ -11,6 +11,8 @@ RSpec.describe CollectionsController, type: :controller do
 
   context "as an anonymous user" do
     describe "GET #show" do
+      render_views
+
       it "assigns variables" do
         collection
         get :show, params: { id: collection.id }
@@ -19,6 +21,14 @@ RSpec.describe CollectionsController, type: :controller do
         expect(assigns(:image_size)).to eq(128)
         expect(assigns(:larger_size)).to eq(256)
         expect(assigns(:smaller_size)).to eq(64)
+      end
+
+      it "serves json" do
+        collection
+        get :show, params: { id: collection.id, format: :json }
+        expect(response).to be_successful
+        json = JSON.parse(response.body)
+        expect(json["label"]).to eq("Test Collection")
       end
     end
   end
